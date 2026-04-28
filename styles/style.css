@@ -1,0 +1,34 @@
+:root{
+    --bg-color: hsl(0, 0%, 0%);
+    --card-color: hsl(from var(--bg-color) h calc(s + 0) calc(l + 20));
+
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+}
+
+*,*::before,*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--bg-color);
+}
+
+
+/* Standard Breakpoints */
+/* Mobile First Approach */
+@media (min-width: 320px)  { /* Mobile Small */ }
+@media (min-width: 480px)  { /* Mobile Large */ }
+@media (min-width: 768px)  { /* Tablet */ }
+@media (min-width: 1024px) { /* Desktop */ }
+@media (min-width: 1200px) { /* Large Desktop */ }
+@media (min-width: 1440px) { /* Extra Large */ }
+
+/* Desktop First Approach */
+@media (max-width: 1439px) { /* Below XL */ }
+@media (max-width: 1199px) { /* Below Large */ }
+@media (max-width: 1023px) { /* Below Desktop */ }
+@media (max-width: 767px)  { /* Below Tablet */ }
+@media (max-width: 479px)  { /* Below Mobile Large */ }
