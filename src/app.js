@@ -15,6 +15,10 @@ const currentPosition = {
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    setPosition(
+        screen.availWidth / 2,
+        screen.availHeight /2
+    );
     window.addEventListener("keydown", e => {
         activeKeys.add(e.code);
     });
