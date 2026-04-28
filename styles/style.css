@@ -14,8 +14,19 @@
 
 body{
     background-color: var(--bg-color);
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
+
+.obj{
+    position: absolute;
+    width: 4rem;
+    height: 4rem;
+    translate: -50% 50%;
+    background-color: white;
+    overflow-y: hidden;
+}
 
 /* Standard Breakpoints */
 /* Mobile First Approach */
