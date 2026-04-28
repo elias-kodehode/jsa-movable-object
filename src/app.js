@@ -40,6 +40,8 @@ const isKeyPressed = (code) => activeKeys.has(code);
 
 
 
+
+//used to track when the last render happened
 let lastTime = 0;
 
 //render loop with delta time
@@ -52,7 +54,7 @@ function loop(currentTime){
 
 
 
-
+//handle input
 const input = {
     //non-normalized input value
     getInputDirection(){
@@ -91,9 +93,13 @@ const input = {
     }
 };
 
+
+//triggered every render
 function update(delta){
+    //normalized input
     const currentInput = input.normalized();
 
+    //dont do anything if nothing is pressed
     if(currentInput.magnitude <= 0){
         return;
     }
@@ -106,22 +112,29 @@ function moveObject(direction, delta){
 
     currentPosition.x += (direction.x * delta) * speed;
     currentPosition.y += (direction.y * delta) * speed;
+    
     clampObject();
 
     obj.style.bottom = `${currentPosition.y}px`;
     obj.style.left = `${currentPosition.x}px`
 }
 
+//Directly set the position of the object
 function setPosition(x,y){
+
+    //since we are using style.bottom we have to subtract from the top of the screen
     const desiredY = (screen.availHeight - 32) - y;
     const desiredX = x;
 
+    //update the objects position state, so it does not desync with the UI
     currentPosition.y = desiredY;
     currentPosition.x = desiredX;
+
     obj.style.bottom = `${desiredY}px`;
     obj.style.left = `${desiredX}px`;
 }
 
+//prevents object from going out of bounds
 function clampObject(){
     if(currentPosition.x > screen.width){
         currentPosition.x = 0;
@@ -138,6 +151,7 @@ function clampObject(){
 }
 
 
+//get the position of the object and parse it
 function getPosition(){
     const style = getComputedStyle(obj);
     return{
