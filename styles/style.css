@@ -1,5 +1,6 @@
 :root{
-    --bg-color: hsl(0, 0%, 0%);
+    --bg-color: hsl(0, 0%, 10%);
+    /* --bg-color: hsl(0, 0%, 100%); */
     --card-color: hsl(from var(--bg-color) h calc(s + 0) calc(l + 20));
 
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -24,8 +25,18 @@ body{
     width: 4rem;
     height: 4rem;
     translate: -50% 50%;
-    background-color: white;
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
+    border-radius: 100%;
+    /* filter: blur(2px); */
+    /* box-shadow: 
+                0 0 15px 1px rgb(255, 255, 255),
+        inset   0 0 1px 1px rgb(185, 185, 253); */
+        /* background-color: rgba(206, 206, 206, 0.341); */
+        box-shadow:
+        inset 8px 8px 8px #000000,
+        inset -8px -8px 8px #3b3b3b;
+        /* border: 1px solid rgba(0, 0, 0, 0.347); */
+        border-style: inset;
 }
 
 /* Standard Breakpoints */

@@ -1,5 +1,6 @@
 const obj = document.querySelector(".obj");
 
+
 //speed of the object moving
 let speed = 500;
 
@@ -39,8 +40,6 @@ const isKeyPressed = (code) => activeKeys.has(code);
 
 
 
-
-
 //used to track when the last render happened
 let lastTime = 0;
 
@@ -60,16 +59,16 @@ const input = {
     getInputDirection(){
         let inputX = 0;
         let inputY = 0;
-        if(isKeyPressed("ArrowRight")){
+        if(isKeyPressed("ArrowRight") || isKeyPressed("KeyD")){
             inputX = 1;
         }
-        if(isKeyPressed("ArrowLeft")){
+        if(isKeyPressed("ArrowLeft") || isKeyPressed("KeyA")){
             inputX = -1;
         }
-        if(isKeyPressed("ArrowUp")){
+        if(isKeyPressed("ArrowUp") || isKeyPressed("KeyW")){
             inputY = 1;
         }
-        if(isKeyPressed("ArrowDown")){
+        if(isKeyPressed("ArrowDown") || isKeyPressed("KeyS")){
             inputY = -1;
         }
         
@@ -96,7 +95,7 @@ const input = {
 
 //triggered every render
 function update(delta){
-    //normalized input
+    // normalized input
     const currentInput = input.normalized();
 
     //dont do anything if nothing is pressed
